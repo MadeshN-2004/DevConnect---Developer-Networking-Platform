@@ -403,9 +403,9 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Developer
 
-**Madesh S**
-- GitHub: [Madesh-S](https://github.com/Madesh-S)
-- LinkedIn: [madesh-s](https://linkedin.com/in/madesh-s)
+**Madesh N**
+- GitHub: https://github.com/MadeshN-2004
+- LinkedIn: www.linkedin.com/in/madesh-n-aa0571243
 - Email: madesh@example.com
 - Phone: +91 9876543210
 
