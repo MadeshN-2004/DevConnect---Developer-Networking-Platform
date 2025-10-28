@@ -355,11 +355,14 @@ All endpoints may return:
 
 ### Dashboard Overview
 
+<img width="1875" height="927" alt="Screenshot 2025-10-28 222004" src="https://github.com/user-attachments/assets/4f7cff1f-a352-4c57-b8d2-56e4a36ebd85" />
+
 
 ### Profile Management
 
 
 ### Projects Portfolio
+<img width="1880" height="1079" alt="Screenshot 2025-10-28 231139" src="https://github.com/user-attachments/assets/3ae44d13-6116-406e-8854-1622b3b17563" />
 
 
 ## 🔧 Available Scripts
