@@ -406,8 +406,7 @@ This project is licensed under the MIT License.
 **Madesh N**
 - GitHub: https://github.com/MadeshN-2004
 - LinkedIn: www.linkedin.com/in/madesh-n-aa0571243
-- Email: madesh@example.com
-- Phone: +91 9876543210
+- Email: madeshnickil@gmail.com
 
 ---
 
