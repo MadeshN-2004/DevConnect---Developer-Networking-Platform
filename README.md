@@ -1,7 +1,7 @@
 # DevConnect - Developer Networking Platform
 
 ## 📋 Project Overview
-DevConnect is a comprehensive developer networking platform that allows developers to showcase their skills, projects, and connect with other professionals. The platform features real-time messaging, connection management, and portfolio展示.
+DevConnect is a comprehensive developer networking platform that allows developers to showcase their skills, projects, and connect with other professionals. The platform features real-time messaging, connection management, and portfolio.
 
 **Key Features:**
 - 🔐 JWT Authentication & Protected Routes
