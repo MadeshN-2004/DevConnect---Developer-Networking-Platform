@@ -352,6 +352,8 @@ All endpoints may return:
 - `500` - Internal Server Error
 
 ## 📱 Application Screenshots
+<img width="1895" height="1079" alt="Screenshot 2025-10-28 230838" src="https://github.com/user-attachments/assets/a2742a0a-1077-4e07-9614-d57c42a72231" />
+
 
 ### Dashboard Overview
 
@@ -359,6 +361,7 @@ All endpoints may return:
 
 
 ### Profile Management
+<img width="1870" height="931" alt="image" src="https://github.com/user-attachments/assets/5a38a037-ab0a-488c-b2fe-d4b08036274c" />
 
 
 ### Projects Portfolio
