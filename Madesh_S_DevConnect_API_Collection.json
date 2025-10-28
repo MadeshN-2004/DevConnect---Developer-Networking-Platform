@@ -1,1 +1,415 @@
-{ "info": { "name": "DevConnect API Collection - Madesh S", "description": "Complete API collection for DevConnect Developer Networking Platform", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" }, "variable": [ { "key": "baseUrl", "value": "http://localhost:5000/api", "type": "string" }, { "key": "token", "value": "", "type": "string" } ], "item": [ { "name": "Authentication", "item": [ { "name": "Register User", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n \"name\": \"Madesh S\",\n \"email\": \"madesh@example.com\",\n \"password\": \"password123\",\n \"phone\": \"+91 9876543210\",\n \"place\": \"Chennai\",\n \"role\": \"Full Stack Developer\"\n}" }, "url": { "raw": "{{baseUrl}}/auth/register", "host": ["{{baseUrl}}"], "path": ["auth", "register"] } }, "response": [] }, { "name": "Login User", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n \"email\": \"madesh@example.com\",\n \"password\": \"password123\"\n}" }, "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] } }, "response": [] }, { "name": "Verify Token", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/auth/verify-token", "host": ["{{baseUrl}}"], "path": ["auth", "verify-token"] } }, "response": [] } ] }, { "name": "User Profile", "item": [ { "name": "Get User Profile", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/users/profile", "host": ["{{baseUrl}}"], "path": ["users", "profile"] } }, "response": [] }, { "name": "Update User Profile", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n \"name\": \"Madesh S Updated\",\n \"email\": \"madesh.updated@example.com\",\n \"phone\": \"+91 9876543211\",\n \"place\": \"Bangalore\",\n \"role\": \"Full Stack Developer\"\n}" }, "url": { "raw": "{{baseUrl}}/users/profile/update", "host": ["{{baseUrl}}"], "path": ["users", "profile", "update"] } }, "response": [] } ] }, { "name": "Projects", "item": [ { "name": "Get User Projects", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/projects/user/{{userId}}", "host": ["{{baseUrl}}"], "path": ["projects", "user", "{{userId}}"] } }, "response": [] }, { "name": "Create Project", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n \"title\": \"DevConnect Platform\",\n \"description\": \"A developer networking platform with real-time features\",\n \"technologies\": \"React, Node.js, MongoDB, Socket.io\",\n \"githubLink\": \"https://github.com/Madesh-S/devconnect\",\n \"liveLink\": \"https://devconnect-demo.com\"\n}" }, "url": { "raw": "{{baseUrl}}/projects", "host": ["{{baseUrl}}"], "path": ["projects"] } }, "response": [] }, { "name": "Update Project", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n \"title\": \"DevConnect Platform v2.0\",\n \"description\": \"Enhanced developer networking platform with new features\",\n \"technologies\": \"React, Node.js, MongoDB, Socket.io, Redis\"\n}" }, "url": { "raw": "{{baseUrl}}/projects/{{projectId}}", "host": ["{{baseUrl}}"], "path": ["projects", "{{projectId}}"] } }, "response": [] }, { "name": "Delete Project", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/projects/{{projectId}}", "host": ["{{baseUrl}}"], "path": ["projects", "{{projectId}}"] } }, "response": [] } ] }, { "name": "Skills", "item": [ { "name": "Get User Skills", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/skills/{{userId}}", "host": ["{{baseUrl}}"], "path": ["skills", "{{userId}}"] } }, "response": [] }, { "name": "Add Skill", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n \"skill\": \"React\",\n \"level\": \"Advanced\"\n}" }, "url": { "raw": "{{baseUrl}}/skills", "host": ["{{baseUrl}}"], "path": ["skills"] } }, "response": [] }, { "name": "Delete Skill", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/skills/{{skillId}}", "host": ["{{baseUrl}}"], "path": ["skills", "{{skillId}}"] } }, "response": [] } ] }, { "name": "Connections", "item": [ { "name": "Discover Users", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/connections/discover", "host": ["{{baseUrl}}"], "path": ["connections", "discover"] } }, "response": [] }, { "name": "Get My Connections", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/connections/my-connections", "host": ["{{baseUrl}}"], "path": ["connections", "my-connections"] } }, "response": [] }, { "name": "Send Connection Request", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n \"recipientId\": \"{{recipientId}}\"\n}" }, "url": { "raw": "{{baseUrl}}/connections/request", "host": ["{{baseUrl}}"], "path": ["connections", "request"] } }, "response": [] }, { "name": "Respond to Connection Request", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n \"action\": \"accept\"\n}" }, "url": { "raw": "{{baseUrl}}/connections/respond/{{connectionId}}", "host": ["{{baseUrl}}"], "path": ["connections", "respond", "{{connectionId}}"] } }, "response": [] }, { "name": "Remove Connection", "request": { "method": "DELETE", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/connections/remove/{{connectionId}}", "host": ["{{baseUrl}}"], "path": ["connections", "remove", "{{connectionId}}"] } }, "response": [] }, { "name": "Get Received Requests", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/connections/requests/received", "host": ["{{baseUrl}}"], "path": ["connections", "requests", "received"] } }, "response": [] }, { "name": "Get Sent Requests", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/connections/requests/sent", "host": ["{{baseUrl}}"], "path": ["connections", "requests", "sent"] } }, "response": [] } ] }, { "name": "Messages", "item": [ { "name": "Get Messages", "request": { "method": "GET", "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ], "url": { "raw": "{{baseUrl}}/messages/{{connectionId}}", "host": ["{{baseUrl}}"], "path": ["messages", "{{connectionId}}"] } }, "response": [] }, { "name": "Send Message", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" }, { "key": "Authorization", "value": "Bearer {{token}}" } ], "body": { "mode": "raw", "raw": "{\n \"recipientId\": \"{{recipientId}}\",\n \"content\": \"Hello! I'd like to connect with you.\"\n}" }, "url": { "raw": "{{baseUrl}}/messages", "host": ["{{baseUrl}}"], "path": ["messages"] } }, "response": [] } ] } ], "event": [ { "listen": "prerequest", "script": { "type": "text/javascript", "exec": ["// Pre-request script for DevConnect API Collection"] } }, { "listen": "test", "script": { "type": "text/javascript", "exec": [ "// Test script for DevConnect API Collection", "pm.test(\"Status code is 200\", function () {", " pm.response.to.have.status(200);", "});" ] } } ], "auth": { "type": "bearer", "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ] } }
+{
+  "info": {
+    "name": "DevConnect API Collection - Madesh S",
+    "description": "Complete API collection for DevConnect Developer Networking Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Madesh S\",\n  \"email\": \"madesh@example.com\",\n  \"password\": \"password123\",\n  \"phone\": \"+91 9876543210\",\n  \"place\": \"Chennai\",\n  \"role\": \"Full Stack Developer\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"madesh@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Verify Token",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/verify-token",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "verify-token"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Profile",
+      "item": [
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/profile",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "profile"]
+            }
+          }
+        },
+        {
+          "name": "Update User Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Madesh S Updated\",\n  \"email\": \"madesh.updated@example.com\",\n  \"phone\": \"+91 9876543211\",\n  \"place\": \"Bangalore\",\n  \"role\": \"Full Stack Developer\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/profile/update",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "profile", "update"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Get User Projects",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/projects/user/{{userId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["projects", "user", "{{userId}}"]
+            }
+          }
+        },
+        {
+          "name": "Create Project",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"DevConnect Platform\",\n  \"description\": \"A developer networking platform with real-time features\",\n  \"technologies\": \"React, Node.js, MongoDB, Socket.io\",\n  \"githubLink\": \"https://github.com/Madesh-S/devconnect\",\n  \"liveLink\": \"https://devconnect-demo.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects",
+              "host": ["{{baseUrl}}"],
+              "path": ["projects"]
+            }
+          }
+        },
+        {
+          "name": "Update Project",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"DevConnect Platform v2.0\",\n  \"description\": \"Enhanced developer networking platform with new features\",\n  \"technologies\": \"React, Node.js, MongoDB, Socket.io, Redis\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["projects", "{{projectId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Project",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["projects", "{{projectId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Skills",
+      "item": [
+        {
+          "name": "Get User Skills",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/skills/{{userId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["skills", "{{userId}}"]
+            }
+          }
+        },
+        {
+          "name": "Add Skill",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"skill\": \"React\",\n  \"level\": \"Advanced\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/skills",
+              "host": ["{{baseUrl}}"],
+              "path": ["skills"]
+            }
+          }
+        },
+        {
+          "name": "Delete Skill",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/skills/{{skillId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["skills", "{{skillId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Connections",
+      "item": [
+        {
+          "name": "Discover Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/connections/discover",
+              "host": ["{{baseUrl}}"],
+              "path": ["connections", "discover"]
+            }
+          }
+        },
+        {
+          "name": "Get My Connections",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/connections/my-connections",
+              "host": ["{{baseUrl}}"],
+              "path": ["connections", "my-connections"]
+            }
+          }
+        },
+        {
+          "name": "Send Connection Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipientId\": \"{{recipientId}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/connections/request",
+              "host": ["{{baseUrl}}"],
+              "path": ["connections", "request"]
+            }
+          }
+        },
+        {
+          "name": "Respond to Connection Request",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"accept\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/connections/respond/{{connectionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["connections", "respond", "{{connectionId}}"]
+            }
+          }
+        },
+        {
+          "name": "Remove Connection",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/connections/remove/{{connectionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["connections", "remove", "{{connectionId}}"]
+            }
+          }
+        },
+        {
+          "name": "Get Received Requests",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/connections/requests/received",
+              "host": ["{{baseUrl}}"],
+              "path": ["connections", "requests", "received"]
+            }
+          }
+        },
+        {
+          "name": "Get Sent Requests",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/connections/requests/sent",
+              "host": ["{{baseUrl}}"],
+              "path": ["connections", "requests", "sent"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Messages",
+      "item": [
+        {
+          "name": "Get Messages",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/messages/{{connectionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["messages", "{{connectionId}}"]
+            }
+          }
+        },
+        {
+          "name": "Send Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipientId\": \"{{recipientId}}\",\n  \"content\": \"Hello! I'd like to connect with you.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/messages",
+              "host": ["{{baseUrl}}"],
+              "path": ["messages"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": ["// Pre-request script for DevConnect API Collection"]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Test script for DevConnect API Collection",
+          "pm.test('Status code is 200', function () {",
+          "  pm.response.to.have.status(200);",
+          "});"
+        ]
+      }
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{token}}", "type": "string" }
+    ]
+  }
+}
